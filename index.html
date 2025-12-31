@@ -257,7 +257,7 @@
               onclick="document.getElementById('products-grid').scrollIntoView()"
               class="w-fit bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full transition shadow-lg"
             >
-              Shop
+              Shop the Sale
             </button>
           </div>
         </div>
@@ -277,6 +277,12 @@
             class="filter-btn whitespace-nowrap px-6 py-2 rounded-full border border-gray-900 font-bold text-sm"
           >
             Earrings
+          </button>
+           <button
+            onclick="filterProducts('Oxsidise-earring', this)"
+            class="filter-btn whitespace-nowrap px-6 py-2 rounded-full border border-gray-900 font-bold text-sm"
+          >
+            Oxidized earrings
           </button>
           <button
             onclick="filterProducts('bangle', this)"
@@ -488,6 +494,77 @@
 
       const products = [
         {
+          id: 25,
+          name: "Modern Bangle 13",
+          category: "oxsidise-earring",
+          originalPrice: 50,
+          img: "oxsidise-earring1.jpeg",
+        },
+        {
+          id: 26,
+          name: "Modern Bangle 14",
+          category: "oxsidise-earring",
+          originalPrice: 50,
+          img: "oxsidise-earring2.jpeg",
+        },
+        {
+          id: 27,
+          name: "Modern Bangle 15",
+          category: "oxsidise-earring",
+          originalPrice: 50,
+          img: "oxsidise-earring3.jpeg",
+        },
+        {
+          id: 28,
+          name: "Modern Bangle 16",
+          category: "oxsidise-earring",
+          originalPrice: 50,
+          img: "oxsidise-earring4.jpeg",
+        },
+        {
+          id: 29,
+          name: "Modern Bangle 17",
+          category: "oxsidise-earring",
+          originalPrice: 50,
+          img: "oxsidise-earring5.jpeg",
+        },
+        {
+          id: 30,
+          name: "Modern Bangle 18",
+          category: "oxsidise-earring",
+          originalPrice: 50,
+          img: "oxsidise-earring6.jpeg",
+        },
+        {
+          id: 31,
+          name: "Modern Bangle 19",
+          category: "oxsidise-earring",
+          originalPrice: 50,
+          img: "oxsidise-earring7.jpeg",
+        },
+        {
+          id: 32,
+          name: "Modern Bangle 20",
+          category: "oxsidise-earring",
+          originalPrice: 50,
+          img: "oxsidise-earring8.jpeg",
+        },
+        {
+          id: 33,
+          name: "Modern Bangle 21",
+          category: "oxsidise-earring",
+          originalPrice: 50,
+          img: "oxsidise-earring9.jpeg",
+        },
+        {
+          id: 34,
+          name: "Modern Bangle 22",
+          category: "oxsidise-earring",
+          originalPrice: 50,
+          img: "oxsidise-earring10.jpeg",
+        },
+        
+        {
           id: 1,
           name: "Premium Jhumka (A)",
           category: "earring",
@@ -642,6 +719,7 @@
           originalPrice: 150,
           img: "bangle12.jpeg",
         },
+        
       ];
 
       products.forEach((p) => {
@@ -818,5 +896,3 @@
     </script>
   </body>
 </html>
-
-
