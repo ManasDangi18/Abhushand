@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abhushand By Jyoti | Premium Jewelry</title>
+    <title>Abhushand By Jyoti | Premium Jewelry - 20% OFF</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -30,12 +30,40 @@
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
       }
+
       .product-card {
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        background: white;
       }
       .product-card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
       }
+
+      .image-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 100%; /* Square Aspect Ratio */
+        overflow: hidden;
+        background-color: #f9f9f9;
+      }
+
+      .product-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s scale;
+      }
+
+      .product-card:hover .product-image {
+        transform: scale(1.1);
+      }
+
       .no-scrollbar::-webkit-scrollbar {
         display: none;
       }
@@ -44,6 +72,7 @@
         color: white;
         border-color: #111827;
       }
+
       .float-btn {
         animation: pulse 2s infinite;
       }
@@ -58,6 +87,7 @@
           transform: scale(1);
         }
       }
+
       .slider-container {
         position: relative;
         overflow: hidden;
@@ -101,7 +131,6 @@
         }
       }
 
-      /* Footer Specific Styles */
       footer a {
         transition: all 0.3s ease;
       }
@@ -109,10 +138,26 @@
         color: #eab308;
         padding-left: 4px;
       }
+
+      .discount-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: #ef4444;
+        color: white;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 800;
+        z-index: 20;
+        text-transform: uppercase;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
     </style>
   </head>
 
   <body class="text-gray-800">
+    <!-- Floating Contact Buttons -->
     <div class="fixed bottom-6 right-6 z-[100] flex flex-col gap-4">
       <a
         href="tel:+917389850997"
@@ -129,7 +174,13 @@
       </a>
     </div>
 
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-effect shadow-sm">
+      <div
+        class="bg-red-600 text-white text-center py-1.5 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]"
+      >
+        🔥 Limited Offer: Sale only 24 hr! 🔥
+      </div>
       <div
         class="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center"
       >
@@ -166,7 +217,8 @@
       </div>
     </nav>
 
-    <main class="pt-20 md:pt-28 min-h-screen">
+    <main class="pt-24 md:pt-32 min-h-screen">
+      <!-- Home Section -->
       <section id="home-section" class="container mx-auto px-4">
         <div
           class="slider-container w-full h-64 md:h-96 rounded-2xl md:rounded-3xl mb-8 shadow-xl relative"
@@ -193,22 +245,24 @@
             <h1
               class="text-3xl md:text-6xl font-bold mb-4 leading-tight drop-shadow-lg"
             >
-              <span class="text-yellow-400">Elegance</span><br />For You
+              <span class="text-yellow-400">Grand Sale</span><br />Flat 20% OFF
             </h1>
             <p
               class="text-gray-100 text-sm md:text-lg mb-6 drop-shadow-md max-w-md"
             >
-              Discover our premium collection of traditional and modern jewelry.
+              Limited time offer on our entire premium collection. Celebrate
+              with elegance.
             </p>
             <button
               onclick="document.getElementById('products-grid').scrollIntoView()"
               class="w-fit bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full transition shadow-lg"
             >
-              Shop Now
+              Shop the Sale
             </button>
           </div>
         </div>
 
+        <!-- Filters -->
         <div
           class="flex justify-start md:justify-center gap-2 mb-8 overflow-x-auto no-scrollbar py-2"
         >
@@ -234,10 +288,11 @@
 
         <div
           id="products-grid"
-          class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8 mb-20"
+          class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mb-20"
         ></div>
       </section>
 
+      <!-- Admin Section -->
       <section id="admin-section" class="container mx-auto px-4 hidden pb-20">
         <div class="flex justify-between items-center mb-6">
           <h2 class="text-2xl font-bold brand-font">Order Management</h2>
@@ -280,6 +335,7 @@
       </section>
     </main>
 
+    <!-- Professional Footer -->
     <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
@@ -288,72 +344,61 @@
               Abhushand <span class="text-yellow-500">By Jyoti</span>
             </h3>
             <p class="text-sm leading-relaxed text-gray-400">
-              Bringing you a world of exquisite craftsmanship and timeless
-              beauty. We specialize in premium handpicked designs that make
-              every occasion special.
+              Timeless elegance and exquisite craftsmanship. Handpicked designs
+              for your most special moments.
             </p>
             <div class="flex gap-4 pt-2">
               <a
                 href="#"
-                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600"
-              >
-                <i class="fa-brands fa-instagram text-lg text-white"></i>
-              </a>
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-all"
+                ><i class="fa-brands fa-instagram text-lg text-white"></i
+              ></a>
               <a
                 href="#"
-                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600"
-              >
-                <i class="fa-brands fa-facebook-f text-lg text-white"></i>
-              </a>
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-all"
+                ><i class="fa-brands fa-facebook-f text-lg text-white"></i
+              ></a>
             </div>
           </div>
-
           <div>
             <h4
               class="text-white font-bold mb-6 uppercase text-sm tracking-widest"
             >
-              Quick Links
+              Quick Navigation
             </h4>
             <ul class="space-y-4 text-sm">
               <li><a href="#" onclick="showSection('home')">Home</a></li>
               <li><a href="#products-grid">Jewelry Collection</a></li>
-              <li><a href="#" onclick="toggleCart()">My Shopping Bag</a></li>
+              <li><a href="#" onclick="toggleCart()">Shopping Bag</a></li>
               <li>
-                <a href="#" onclick="checkAdminPassword()">Admin Login</a>
+                <a href="#" onclick="checkAdminPassword()">Admin Portal</a>
               </li>
             </ul>
           </div>
-
           <div>
             <h4
               class="text-white font-bold mb-6 uppercase text-sm tracking-widest"
             >
-              Categories
+              Our Collections
             </h4>
             <ul class="space-y-4 text-sm">
               <li>
-                <a href="#" onclick="filterProducts('earring', this)"
-                  >Earrings & Jhumkas</a
+                <a href="#" onclick="filterProducts('earring', null)"
+                  >Premium Earrings</a
                 >
               </li>
               <li>
-                <a href="#" onclick="filterProducts('bangle', this)"
-                  >Classic Bangles</a
+                <a href="#" onclick="filterProducts('bangle', null)"
+                  >Traditional Bangles</a
                 >
               </li>
               <li>
-                <a href="#" onclick="filterProducts('all', this)"
-                  >Traditional Sets</a
-                >
-              </li>
-              <li>
-                <a href="#" onclick="filterProducts('all', this)"
-                  >New Arrivals</a
+                <a href="#" onclick="filterProducts('all', null)"
+                  >Bridal Sets</a
                 >
               </li>
             </ul>
           </div>
-
           <div>
             <h4
               class="text-white font-bold mb-6 uppercase text-sm tracking-widest"
@@ -362,35 +407,27 @@
             </h4>
             <ul class="space-y-4 text-sm">
               <li class="flex items-start gap-3">
-                <i class="fa-solid fa-location-dot mt-1 text-yellow-500"></i>
-                <span
+                <i class="fa-solid fa-location-dot mt-1 text-yellow-500"></i
+                ><span
                   >Phad Singh Pura, Khargone<br />Madhya Pradesh - 451001</span
                 >
               </li>
               <li class="flex items-center gap-3">
-                <i class="fa-solid fa-phone text-yellow-500"></i>
-                <a href="tel:+917389850997">+91 7389850997</a>
-              </li>
-              <li class="flex items-center gap-3">
-                <i class="fa-solid fa-envelope text-yellow-500"></i>
-                <span>jyoti@abhushand.com</span>
+                <i class="fa-solid fa-phone text-yellow-500"></i
+                ><a href="tel:+917389850997">+91 7389850997</a>
               </li>
             </ul>
           </div>
         </div>
-
         <div
           class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest font-bold"
         >
           <p>&copy; 2025 Abhushand By Jyoti. All Rights Reserved.</p>
-          <div class="flex gap-6">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-          </div>
         </div>
       </div>
     </footer>
 
+    <!-- Cart Modal -->
     <div id="cart-modal" class="fixed inset-0 z-[110] hidden">
       <div
         class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"
@@ -400,7 +437,12 @@
         class="absolute right-0 top-0 h-full w-full sm:max-w-md bg-white p-6 shadow-2xl flex flex-col transition-transform"
       >
         <div class="flex justify-between items-center border-b pb-4 mb-4">
-          <h2 class="text-2xl font-bold brand-font">Your Bag</h2>
+          <h2 class="text-2xl font-bold brand-font">
+            Your Bag
+            <span class="text-sm font-sans text-red-500 ml-2"
+              >(20% OFF Applied)</span
+            >
+          </h2>
           <button onclick="toggleCart()" class="text-gray-500">
             <i class="fa-solid fa-xmark text-2xl"></i>
           </button>
@@ -428,190 +470,183 @@
         </div>
         <div class="border-t pt-4">
           <div class="flex justify-between text-xl font-bold mb-4">
-            <span>Total</span> <span id="cart-total">₹0</span>
+            <span>Total Amount</span> <span id="cart-total">₹0</span>
           </div>
           <button
             onclick="placeOrder()"
-            class="w-full bg-green-600 text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-3"
+            class="w-full bg-green-600 text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-3 shadow-lg"
           >
-            <i class="fa-brands fa-whatsapp text-2xl"></i> Place Order
+            <i class="fa-brands fa-whatsapp text-2xl"></i> Send Order on
+            WhatsApp
           </button>
         </div>
       </div>
     </div>
 
     <script>
+      const DISCOUNT_RATE = 0.2;
+
       const products = [
         {
           id: 1,
-          name: "Premium Jhumka",
+          name: "Premium Jhumka (A)",
           category: "earring",
-          price: 450,
+          originalPrice: 220,
           img: "earing1_220.jpeg",
         },
         {
           id: 2,
-          name: "Golden Bangle",
+          name: "Premium Jhumka (B)",
           category: "earring",
-          price: 650,
+          originalPrice: 220,
           img: "earing2_220.jpeg",
         },
         {
           id: 3,
-          name: "Traditional Set",
-          category: "set",
-          price: 950,
+          name: "Premium Jhumka (C)",
+          category: "earring",
+          originalPrice: 250,
           img: "earing3_250.jpeg",
         },
         {
           id: 4,
-          name: "Royal Earring",
+          name: "Premium Jhumka (D)",
           category: "earring",
-          price: 550,
+          originalPrice: 220,
           img: "earing4_220.jpeg",
         },
         {
           id: 5,
-          name: "Bridal Collection",
+          name: "Premium Jhumka (E)",
           category: "earring",
-          price: 1200,
+          originalPrice: 220,
           img: "earing5_220.jpeg",
         },
         {
           id: 6,
-          name: "Stone Jhumki",
+          name: "Premium Jhumka (F)",
           category: "earring",
-          price: 350,
+          originalPrice: 220,
           img: "earing6_220.jpeg",
         },
         {
           id: 7,
-          name: "Elegant Bangle",
+          name: "Premium Jhumka (G)",
           category: "earring",
-          price: 700,
+          originalPrice: 200,
           img: "earing7_200.jpeg",
         },
         {
           id: 8,
-          name: "Festive Set",
+          name: "Premium Jhumka (H)",
           category: "earring",
-          price: 1100,
+          originalPrice: 160,
           img: "earing8_160.jpeg",
         },
         {
           id: 9,
-          name: "Traditional Set",
+          name: "Premium Jhumka (I)",
           category: "earring",
-          price: 950,
+          originalPrice: 950,
           img: "earing9.jpeg",
         },
         {
           id: 10,
-          name: "Elegant Set",
+          name: "Premium Jhumka (J)",
           category: "earring",
-          price: 1000,
+          originalPrice: 220,
           img: "earing10.jpeg",
         },
         {
-          id: 11,
-          name: "Elegant Set",
+          id: 12,
+          name: "Premium Jhumka (K)",
           category: "earring",
-          price: 1000,
+          originalPrice: 220,
           img: "earing11.jpeg",
         },
-        {
-          id: 12,
-          name: "Elegant Set",
-          category: "earring",
-          price: 1000,
-          img: "earing12.jpeg",
-        },
-        {
-          id: 13,
-          name: "Modern Bangle 1",
-          category: "bangle",
-          price: 800,
-          img: "bangle1.jpeg",
-        },
+       
         {
           id: 14,
           name: "Modern Bangle 2",
           category: "bangle",
-          price: 850,
+          originalPrice: 220,
           img: "bangle2.jpeg",
         },
         {
           id: 15,
           name: "Modern Bangle 3",
           category: "bangle",
-          price: 900,
+          originalPrice: 100,
           img: "bangle3.jpeg",
         },
         {
           id: 16,
           name: "Modern Bangle 4",
           category: "bangle",
-          price: 950,
+          originalPrice: 100,
           img: "bangle4.jpeg",
         },
         {
           id: 17,
           name: "Modern Bangle 5",
           category: "bangle",
-          price: 1000,
+          originalPrice: 220,
           img: "bangle5.jpeg",
         },
         {
           id: 18,
           name: "Modern Bangle 6",
           category: "bangle",
-          price: 1050,
+          originalPrice: 100,
           img: "bangle6.jpeg",
         },
         {
           id: 19,
           name: "Modern Bangle 7",
           category: "bangle",
-          price: 1100,
+          originalPrice: 60,
           img: "bangle7.jpeg",
         },
         {
           id: 20,
           name: "Modern Bangle 8",
           category: "bangle",
-          price: 1150,
+          originalPrice: 80,
           img: "bangle8.jpeg",
         },
         {
           id: 21,
           name: "Modern Bangle 9",
           category: "bangle",
-          price: 1200,
+          originalPrice: 60,
           img: "bangle9.jpeg",
         },
         {
           id: 22,
           name: "Modern Bangle 10",
           category: "bangle",
-          price: 1250,
+          originalPrice: 80,
           img: "bangle10.jpeg",
         },
         {
           id: 23,
           name: "Modern Bangle 11",
           category: "bangle",
-          price: 1300,
+          originalPrice: 100,
           img: "bangle11.jpeg",
         },
         {
           id: 24,
           name: "Modern Bangle 12",
           category: "bangle",
-          price: 1350,
+          originalPrice: 150,
           img: "bangle12.jpeg",
-        }
-        
+        },
       ];
+
+      products.forEach((p) => {
+        p.price = Math.round(p.originalPrice * (1 - DISCOUNT_RATE));
+      });
 
       let cart = [];
       let orderHistory = [];
@@ -621,14 +656,18 @@
         document.getElementById("products-grid").innerHTML = list
           .map(
             (p) => `
-          <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 group">
-            <div class="relative overflow-hidden">
-              <img src="${p.img}" class="w-full h-48 md:h-56 object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://via.placeholder.com/400x400?text=Jewelry'">
+          <div class="product-card rounded-3xl overflow-hidden shadow-sm border border-gray-100 flex flex-col h-full">
+            <div class="discount-badge">20% OFF</div>
+            <div class="image-container">
+              <img src="${p.img}" class="product-image" alt="${p.name}" onerror="this.src='https://via.placeholder.com/600x600?text=Premium+Jewelry'">
             </div>
-            <div class="p-3 md:p-5">
-              <h3 class="font-bold text-sm md:text-lg mb-1 truncate">${p.name}</h3>
-              <p class="text-yellow-600 font-bold text-base md:text-xl mb-3">₹${p.price}</p>
-              <button onclick="addToCart(${p.id})" class="w-full py-2 rounded-lg border-2 border-gray-900 text-xs font-bold hover:bg-gray-900 hover:text-white transition">Add to Bag</button>
+            <div class="p-4 md:p-6 flex flex-col flex-grow text-center">
+              <h3 class="font-bold text-gray-800 text-sm md:text-lg mb-2 truncate px-1">${p.name}</h3>
+              <div class="flex items-center justify-center gap-2 mb-4">
+                <p class="text-yellow-600 font-bold text-lg md:text-2xl">₹${p.price}</p>
+                <p class="text-gray-400 line-through text-xs md:text-base">₹${p.originalPrice}</p>
+              </div>
+              <button onclick="addToCart(${p.id})" class="mt-auto w-full py-2.5 rounded-xl border-2 border-gray-900 text-xs md:text-sm font-bold hover:bg-gray-900 hover:text-white transition-all duration-300">Add to Bag</button>
             </div>
           </div>
         `
@@ -665,10 +704,13 @@
                   (item, index) => `
             <div class="flex justify-between items-center bg-gray-50 p-3 rounded-xl border border-gray-100">
               <div class="flex items-center gap-3">
-                <img src="${item.img}" class="w-10 h-10 rounded object-cover" onerror="this.src='https://via.placeholder.com/40x40'">
-                <p class="font-bold text-sm">${item.name}</p>
+                <img src="${item.img}" class="w-12 h-12 rounded-lg object-cover" onerror="this.src='https://via.placeholder.com/50x50'">
+                <div>
+                  <p class="font-bold text-sm text-gray-800">${item.name}</p>
+                  <p class="text-[10px] text-green-600 font-bold">₹${item.price} <span class="text-gray-400 line-through">₹${item.originalPrice}</span></p>
+                </div>
               </div>
-              <button onclick="cart.splice(${index},1);updateUI();" class="text-red-400"><i class="fa-solid fa-trash text-xs"></i></button>
+              <button onclick="cart.splice(${index},1);updateUI();" class="text-red-400 hover:text-red-600 transition-colors"><i class="fa-solid fa-trash text-sm"></i></button>
             </div>
           `
                 )
@@ -684,12 +726,22 @@
         const total = cart.reduce((sum, i) => sum + i.price, 0);
         const orderId = Date.now().toString().slice(-6);
 
-        // Detailed WhatsApp Message
-        let msg = `*NEW ORDER: Abhushand By Jyoti*%0A--------------------------%0A*Order ID:* #${orderId}%0A*Customer:* ${name}%0A*Mobile:* ${mobile}%0A--------------------------%0A*Items:*%0A`;
-        cart.forEach(
-          (i, idx) => (msg += `${idx + 1}. ${i.name} - ₹${i.price}%0A`)
-        );
-        msg += `--------------------------%0A*Total Amount: ₹${total}*%0A%0APlease confirm!`;
+        let msg = `*NEW ORDER: ABHUSHAND BY JYOTI*%0A`;
+        msg += `--------------------------%0A`;
+        msg += `*Order ID:* #${orderId}%0A`;
+        msg += `*Customer:* ${name}%0A`;
+        msg += `*Mobile:* ${mobile}%0A`;
+        msg += `--------------------------%0A`;
+        msg += `*ITEMS ORDERED (20% OFF):*%0A`;
+
+        cart.forEach((i, idx) => {
+          msg += `${idx + 1}. ${i.name} - *₹${i.price}*%0A`;
+        });
+
+        msg += `--------------------------%0A`;
+        msg += `*GRAND TOTAL: ₹${total}*%0A`;
+        msg += `--------------------------%0A`;
+        msg += `_Please confirm my order. Thank you!_`;
 
         window.open(`https://wa.me/917389850997?text=${msg}`);
 
@@ -746,7 +798,7 @@
       }
 
       window.deleteOrder = (id) => {
-        if (confirm("Delete this order?")) {
+        if (confirm("Delete this order record?")) {
           orderHistory = orderHistory.filter((o) => o.id != id);
           updateAdminTable();
         }
@@ -766,3 +818,4 @@
     </script>
   </body>
 </html>
+
